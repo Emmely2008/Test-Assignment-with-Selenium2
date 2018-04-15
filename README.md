@@ -73,9 +73,9 @@ _______________
 
 *The Document Object Model (DOM) is a programming interface for HTML and XML documents. 
 It represents the page so that programs can change the document structure, style, and content. 
-The DOM represents the document as nodes and objects. That way, programming languages can connect to the page.
+The DOM represents the document as nodes and objects. That way, programming languages can connect to the page.*
 
-A Web page is a document. This document can be either displayed in the browser window or as the HTML source. 
+*A Web page is a document. This document can be either displayed in the browser window or as the HTML source. 
 But it is the same document in both cases. The Document Object Model (DOM) represents that same document so it can be manipulated. 
 The DOM is an object-oriented representation of the web page, which can be modified with a scripting language such as JavaScript.* [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 
@@ -87,7 +87,7 @@ _______________
 When we perform a set of action on a web page the response time of the application might not be the same every time. 
 The DOM has not been rendered before we start performing actions on the page.
 
-*So, we need to inculcate a mechanism in our automation script that deals with such type of delays, this is nothing but Synchronization between our tool and the application under test.
+*So, we need to inculcate a mechanism in our automation script that deals with such type of delays, this is nothing but Synchronization between our tool and the application under test.*
 
 Synchronization/ Waits can be achieved in many different ways :
 
@@ -96,7 +96,7 @@ Synchronization/ Waits can be achieved in many different ways :
 - Script timeout
 - Implicit Wait
 - Explicit Wait
-*
+
 I use:
 
 ###### Implicit Wait :
