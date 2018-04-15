@@ -2,14 +2,14 @@
 ## Automated System Testing with Selenium2
 *Emmely Lundberg cph-el69*
 
-Demonstrate how to use Selenium to test a modern interactive (JavaScript driven) web application, and some of the problems involved with automated GUI testing1. 
-This is a StudyPoint exercise and will end up as part of an exam-question as sketched below: 
+*Demonstrate how to use Selenium to test a modern interactive (JavaScript driven) web application, and some of the problems involved with automated GUI testing1. 
+This is a StudyPoint exercise and will end up as part of an exam-question as sketched below: *
  
 _______________ 
 #### 1) Discuss Pros and Cons with manual versus automated tests 
 
-Manual tests takes longer time to implement but the time is gained be repeating the test again and again. 
-We reuse the test in regression testing if the tests passes we verify that the software works when changes to the code is made.
+Automated testing takes longer time to implement but the time is gained be repeating the test again and again. 
+We reuse the automated tests in regression testing. If the tests passes we are verified that the software works when changes to the code is made.
 
 Pros and cons with automated tests:
 
@@ -21,28 +21,30 @@ Pros and cons with automated tests:
 
 ##### Cons
 - Takes time to implement.
-- Require competes (usually developers) to implement.
-- In the case of a project it requires resources usually taken from developers that could be used for implementing new features.
+- Require competence (usually developers) to implement.
+- In the case of a project it takes resource from implementing new features.
 - Less flexible than manual testing and has limitation. Limitations such as we can't automate everything like determined good visually layout and usability.
 - Tools cost money for license and require knowledge.
 
+Pros of manual testing:
 
 Manual test can be cost effective in the short time. Easier to capture usability bugs using manual tests.
+
 _______________ 
 #### 2) Explain about the Test Pyramid and whether this exercise supports the ideas in the Test Pyramid 
 
 
 *Mike Cohn came up with this concept in his book Succeeding with Agile. 
 It's a great visual metaphor telling you to think about different layers of testing. 
-It also tells you how much testing to do on each layer.* [source](https://martinfowler.com/articles/practical-test-pyramid.html)
+It also tells you how much testing to do on each layer.* [Martin Fowlder](https://martinfowler.com/articles/practical-test-pyramid.html)
 
 [![https://gyazo.com/3b03458bfad91ee08975cfa348780fe1](https://i.gyazo.com/3b03458bfad91ee08975cfa348780fe1.png)](https://gyazo.com/3b03458bfad91ee08975cfa348780fe1)
 
-I belive the Selenium tests in the exercise supports the ideas in the Test Pyramid the idea because:
+I believe the Selenium tests in the exercise supports the ideas in the Test Pyramid the idea because:
 
 Given that this is just a snap shot of the tests to be implemented for this application I would say we do tests according to the test pyramid.
 
-For example in ReatJS we perfectly write unit test in all of these frameworks aswell. 
+For example in ReatJS we perfectly write unit test in all of these frameworks as well. 
 The test would probably move closer to Service test because such unit tests usually test front-end logic rather than the GUI.
  
 In the exercise we make a few test to check that the fron-end is "healthy". 
@@ -55,22 +57,23 @@ _______________
 
 I see two vulnerabilities:
 
-1) We are limited in our testing such as testing for usability and that the layout hasn't changed.
+1) We are limited in our testing such as testing for usability and that the layout hasn't changed (visual bugs). Here it's more beneficial to use manual testing:
 
 *Once you want to test for usability and a "looks good" factor you leave the realms of automated testing. 
 This is the area where you should rely on exploratory testing, usability testing (this can even be as simple as hallway testing) 
-and showcases with your users to see if they like using your product and can use all features without getting frustrated or annoyed.*
+and showcases with your users to see if they like using your product and can use all features without getting frustrated or annoyed.* [Martin Fowlder](https://martinfowler.com/articles/practical-test-pyramid.html)
 
-2) The GUI is what the stakeholders/users see and they might be eager to change (for example to sat in fashion). 
-It is also the easiest part to change. If it is changed often that might lead to the automated GUI test needing to be rewritten.
-The tests then require more maintenance than they create value.
+2) The GUI is what the stakeholders/users see and they might be eager to change (for example to stay in fashion). 
+It is also the easiest part to change. If it is changed often that might lead to the automated GUI test needing to be rewritten this leads to unwanted high maintenance of automated GUI tests.
 
 _______________ 
 #### 4) Demonstrate details in how to create a Selenium Test using the code for the exercise 
 
-Make sure the tests are run in name ascending order with the annotation *@FixMethodOrder(MethodSorters.NAME_ASCENDING)*.
+Making sure the tests are run in name ascending order with the annotation *@FixMethodOrder(MethodSorters.NAME_ASCENDING)*.
 
-Set up and tear down the WebDriver. I use Chrome as Selenium WebDriver to manipulate the DOM. I also reset the back-end stup 
+Setting up and setup/tear down the WebDriver. 
+
+I use Chrome as Selenium WebDriver to manipulate the DOM. I also reset the back-end in the set up function 
 by calling "hhtp://localhost:3000/reset" and make sure the DOM is ready before the tests run with *setScriptTimeout*. See code:
 
 ```
@@ -184,6 +187,7 @@ But it is the same document in both cases. The Document Object Model (DOM) repre
 The DOM is an object-oriented representation of the web page, which can be modified with a scripting language such as JavaScript.* [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 
 In the Selenium tests I use the Chrome Driver to read and manipulate the DOM.
+
 
 _______________ 
 #### 6) Explain how (and why it was necessary) you have solved "waiting" problems in your test 
