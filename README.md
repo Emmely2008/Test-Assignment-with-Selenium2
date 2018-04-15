@@ -3,13 +3,13 @@
 *Emmely Lundberg cph-el69*
 
 *Demonstrate how to use Selenium to test a modern interactive (JavaScript driven) web application, and some of the problems involved with automated GUI testing1. 
-This is a StudyPoint exercise and will end up as part of an exam-question as sketched below: *
+This is a StudyPoint exercise and will end up as part of an exam-question as sketched below:*
  
 _______________ 
 #### 1) Discuss Pros and Cons with manual versus automated tests 
 
 Automated testing takes longer time to implement but the time is gained be repeating the test again and again. 
-We reuse the automated tests in regression testing. If the tests passes we are verified that the software works when changes to the code is made.
+We reuse the automated tests in regression testing. If the tests passes we verify that the software works when changes to the code is made.
 
 Pros and cons with automated tests:
 
