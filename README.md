@@ -100,7 +100,20 @@ public class MyClassTest {
 	
 ``` 
 This is the code that creates a new instance of car and verifies that is created by making sure that the list is increase by one and that we can find the item with the properties.
-I use XPath to target the elements to manipulate and read.
+I use XPath, id and tagname to target the elements to manipulate and read.
+
+
+Clicking a anchor tag inside a cell I need to use this command:
+
+```
+        WebElement edit_link = driver.findElements(By.xpath("//table[@class='table']/tbody/tr[contains(td[1],\"938\")]/td[8]")).get(0);
+        edit_link.findElements(By.tagName("a")).get(0).click();
+```
+
+```
+```
+
+
 
 In this example I use the driver method findElements to find all the table rows given table with the class attribute = 'table'. I then assert that the number of table rows equal 6.  
 
