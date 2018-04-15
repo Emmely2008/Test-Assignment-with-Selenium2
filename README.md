@@ -42,10 +42,10 @@ I belive the Selenium tests in the exercise supports the ideas in the Test Pyram
 
 Given that this is just a snap shot of the tests to be implemented for this application I would say we do tests according to the test pyramid.
 
-Because this is an ReatJS application you're perfectly able to unit test your UI in all of these frameworks aswell. 
-The test would probably move to Service test by using this because such unit tests usually test logic rather than the GUI.
+For example in ReatJS we perfectly write unit test in all of these frameworks aswell. 
+The test would probably move closer to Service test because such unit tests usually test front-end logic rather than the GUI.
  
-We make a few test to check that the fron-end is "healthy". 
+In the exercise we make a few test to check that the fron-end is "healthy". 
 This aligned with the test pyramid be cause we are doing tests in the higher level and the pyramid suggest us to do fewer tests there.
 Checking for core behavior and that the GUI is healthy rather than checking lots of inputs with border values is an indication that the tests are at a reasonable
 level like the test pyramid suggests.
@@ -67,6 +67,97 @@ The tests then require more maintenance than they create value.
 
 _______________ 
 #### 4) Demonstrate details in how to create a Selenium Test using the code for the exercise 
+
+Make sure the tests are run in name ascending order with the annotation *@FixMethodOrder(MethodSorters.NAME_ASCENDING)*.
+
+Set up and tear down the WebDriver. I use Chrome as Selenium WebDriver to manipulate the DOM. I also reset the back-end stup 
+by calling "hhtp://localhost:3000/reset" and make sure the DOM is ready before the tests run with *setScriptTimeout*. See code:
+
+```
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class MyClassTest {
+    private static  WebDriver driver;
+
+    @BeforeClass
+    public static void setup(){
+
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\eacl\\Desktop\\TEST\\chromedriver_win32\\chromedriver.exe");
+
+        driver = new ChromeDriver();
+
+        //com.jayway.restassured.RestAssured.given().get("hhtp://localhost:3000/reset"); - caused errors
+        driver.get("http://localhost:3000/reset"); // We reset the back-end stub to initial state.
+
+        driver.manage().timeouts().setScriptTimeout(100,TimeUnit.SECONDS);
+    }
+    @AfterClass
+    public static void tearDown(){
+
+        driver.close();
+        driver.quit();
+    }
+	
+``` 
+This is the code that creates a new instance of car and verifies that is created by making sure that the list is increase by one and that we can find the item with the properties.
+I use XPath to target the elements to manipulate and read.
+
+In this example I use the driver method findElements to find all the table rows given table with the class attribute = 'table'. I then assert that the number of table rows equal 6.  
+
+```
+        int tableSize = driver.findElements(By.xpath("//table[@class='table']/tbody/tr")).size();
+        assertEquals(6, tableSize);
+```
+In this example I use the driver method findElements to find all the table data of a given table row that contains the text "2008" in the second column.  
+
+``` 
+driver.findElements(By.xpath("//table[@class='table']/tbody/tr[contains(td[2],\"2008\")]/td"));
+```
+
+```
+  @Test
+    public void test7() {
+        /** 6. 7. Click the new Car Button, and add the following values for a new car a.
+         *
+         * Year:   2008
+         * b. Registered:  2002-5-5
+         * c. Make:   Kia
+         * d. Model:   Rio
+         * e. Description:  As new
+         * f. Price:   31000
+         *
+         Click “Save car”, and verify that the new car was added to the table with all the other cars. */
+        //todo
+        driver.findElement(By.id("new")).click();
+        driver.findElement(By.id("year")).sendKeys("2008");
+        driver.findElement(By.id("registered")).sendKeys("2002-5-5");
+        driver.findElement(By.id("make")).sendKeys("Kia");
+        driver.findElement(By.id("model")).sendKeys("Rio");
+        driver.findElement(By.id("description")).sendKeys("As new");
+        driver.findElement(By.id("price")).sendKeys("31000");
+
+        driver.findElement(By.id("save")).click();
+
+
+        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+
+        int tableSize = driver.findElements(By.xpath("//table[@class='table']/tbody/tr")).size();
+        assertEquals(6, tableSize);
+
+
+        List<WebElement> elms = driver.findElements(By.xpath("//table[@class='table']/tbody/tr[contains(td[2],\"2008\")]/td"));
+        assertTrue("2008".equals(elms.get(1).getText()));
+        assertTrue("5/5/2002".equals(elms.get(2).getText()));
+        assertTrue("Kia".equals(elms.get(3).getText()));
+        assertTrue("Rio".equals(elms.get(4).getText()));
+        assertTrue("As new".equals(elms.get(5).getText()));
+        assertTrue("31.000,00 kr.".equals(elms.get(6).getText()));
+
+
+    }
+
+``` 
+
 
 _______________ 
 #### 5) Explain shortly about the DOM, and how you have read/manipulated DOM-elements in your test  
