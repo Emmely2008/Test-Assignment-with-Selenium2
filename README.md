@@ -43,7 +43,7 @@ I belive the Selenium tests in the exercise supports the ideas in the Test Pyram
 Given that this is just a snap shot of the tests to be implemented for this application I would say we do tests according to the test pyramid.
 
 Because this is an ReatJS application you're perfectly able to unit test your UI in all of these frameworks aswell. 
-The test would probably move to Service test by using this because such tests usually test logic rather than the GUI.
+The test would probably move to Service test by using this because such unit tests usually test logic rather than the GUI.
  
 We make a few test to check that the fron-end is "healthy". 
 This aligned with the test pyramid be cause we are doing tests in the higher level and the pyramid suggest us to do fewer tests there.
@@ -61,8 +61,9 @@ I see two vulnerabilities:
 This is the area where you should rely on exploratory testing, usability testing (this can even be as simple as hallway testing) 
 and showcases with your users to see if they like using your product and can use all features without getting frustrated or annoyed.*
 
-2) The GUI is what the stockholders/users see and they might be eager to change around a lot. 
-It is also the easiest part to change but that might lead to the est needing to be rewritten so that that keeping the automated GUI tests creates a lot of maintenance.
+2) The GUI is what the stakeholders/users see and they might be eager to change (for example to sat in fashion). 
+It is also the easiest part to change. If it is changed often that might lead to the automated GUI test needing to be rewritten.
+The tests then require more maintenance than they create value.
 
 _______________ 
 #### 4) Demonstrate details in how to create a Selenium Test using the code for the exercise 
