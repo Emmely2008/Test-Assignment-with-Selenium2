@@ -84,7 +84,7 @@ In the Selenium tests I use the Chrome Driver to read and manipulate the DOM.
 _______________ 
 #### 6) Explain how (and why it was necessary) you have solved "waiting" problems in your test 
 
-*When we perform a set of action on a web page the response time of the application might not be the same every time. 
+When we perform a set of action on a web page the response time of the application might not be the same every time. 
 The DOM has not been rendered before we start performing actions on the page.
 
 *So, we need to inculcate a mechanism in our automation script that deals with such type of delays, this is nothing but Synchronization between our tool and the application under test.
