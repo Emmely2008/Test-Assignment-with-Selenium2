@@ -8,9 +8,10 @@ This is a StudyPoint exercise and will end up as part of an exam-question as ske
 _______________ 
 #### 1) Discuss Pros and Cons with manual versus automated tests 
 
-Manual tests takes longer time to implement but the time is gained be repeating the test again and again. We reuse the test in regression test if the test passes we can be assured that the program works.
+Manual tests takes longer time to implement but the time is gained be repeating the test again and again. 
+We reuse the test in regression testing if the tests passes we verify that the software works when changes to the code is made.
 
-
+Pros and cons with automated tests:
 
 ##### Pros
 - Fast and effective when performing the test.
@@ -20,28 +21,34 @@ Manual tests takes longer time to implement but the time is gained be repeating 
 
 ##### Cons
 - Takes time to implement.
-- Require competes (usually developer implement them) to implement.
-- In the case of a project it requires resources usually taken from developers.
-- Less flexible than manual testing and has limitation.
-- Tools cost and require knowledge.
+- Require competes (usually developers) to implement.
+- In the case of a project it requires resources usually taken from developers that could be used for implementing new features.
+- Less flexible than manual testing and has limitation. Limitations such as we can't automate everything like determined good visually layout and usability.
+- Tools cost money for license and require knowledge.
 
 
-Manual test can be cost effective in the short time. Easier to capture usability bugs than manual tests.
+Manual test can be cost effective in the short time. Easier to capture usability bugs using manual tests.
 _______________ 
 #### 2) Explain about the Test Pyramid and whether this exercise supports the ideas in the Test Pyramid 
 
 
 *Mike Cohn came up with this concept in his book Succeeding with Agile. 
 It's a great visual metaphor telling you to think about different layers of testing. 
-It also tells you how much testing to do on each layer.*[source](https://martinfowler.com/articles/practical-test-pyramid.html)
+It also tells you how much testing to do on each layer.* [source](https://martinfowler.com/articles/practical-test-pyramid.html)
 
 [![https://gyazo.com/3b03458bfad91ee08975cfa348780fe1](https://i.gyazo.com/3b03458bfad91ee08975cfa348780fe1.png)](https://gyazo.com/3b03458bfad91ee08975cfa348780fe1)
 
-This exercise supports the idea because:
+I belive the Selenium tests in the exercise supports the ideas in the Test Pyramid the idea because:
 
-- Given that this is just a snap short of the tests to be implemented for this application. I would say it is according to the pyramid. 
-We make a few test to check that the fron-end is "healthy". This aligned with the test pyramid be cause we are doing tests in the higher level and the pyramid suggest us to do fewer tests there.
-Checking for core functionality and that the GUI is healthy rather than checking lots of inputs with border values is an indication that the tests are reasonable low. 
+Given that this is just a snap shot of the tests to be implemented for this application I would say we do tests according to the test pyramid.
+
+Because this is an ReatJS application you're perfectly able to unit test your UI in all of these frameworks aswell. 
+The test would probably move to Service test by using this because such tests usually test logic rather than the GUI.
+ 
+We make a few test to check that the fron-end is "healthy". 
+This aligned with the test pyramid be cause we are doing tests in the higher level and the pyramid suggest us to do fewer tests there.
+Checking for core behavior and that the GUI is healthy rather than checking lots of inputs with border values is an indication that the tests are at a reasonable
+level like the test pyramid suggests.
 
 _______________ 
 #### 3) Discuss some of the problems with automated GUI tests and what makes such tests "vulnerable"  
